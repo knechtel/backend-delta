@@ -68,13 +68,36 @@ public class EquipmentDto {
         this.defectForRepair = defectForRepair;
     }
 
-    public Equipment toBuild(EquipmentDto equipmentDto){
+    public Equipment toBuild(EquipmentDto equipmentDto) {
         Equipment entity = new Equipment();
         entity.setBrand(brand);
         entity.setModel(model);
         entity.setSerial(serial);
         entity.setCostValue(costValue);
         entity.setDefectForRepair(defectForRepair);
+
+        return entity;
+    }
+
+    public Equipment toBuildUpdate(EquipmentDto equipmentDto) {
+        Equipment entity = new Equipment();
+        entity.setId(id);
+        System.out.println(id);
+        if (brand != null) {
+            entity.setBrand(brand);
+        }
+        if (model != null) {
+            entity.setModel(model);
+        }
+        if (serial != null) {
+            entity.setSerial(serial);
+        }
+        if (costValue != null){
+            entity.setCostValue(costValue);
+        }
+        if (defectForRepair != null) {
+            entity.setDefectForRepair(defectForRepair);
+        }
 
         return entity;
     }

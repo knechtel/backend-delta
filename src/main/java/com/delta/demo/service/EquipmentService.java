@@ -16,15 +16,39 @@ public class EquipmentService {
     private EquipmentDao equipmentDao;
 
 
-    public Equipment create(Equipment equipment){
+    public Equipment create(Equipment equipment) {
         return equipmentDao.save(equipment);
     }
-    public List<Equipment> findAll(){
+
+    public List<Equipment> findAll() {
         return (List<Equipment>) equipmentDao.findAll();
     }
 
-    public Equipment findById(Integer id){
+    public Equipment findById(Integer id) {
         return equipmentDao.findById(id).orElse(null);
+    }
+
+    public void update(Equipment equipment) {
+        System.out.println("updateSerivce");
+        System.out.println(equipment.getId());
+        if(equipment.getId()==null){ return;}
+        Equipment equipmentEdit = equipmentDao.findById(equipment.getId()).orElse(null);
+        if (equipment.getBrand() != null)
+            equipmentEdit.setBrand(equipmentEdit.getBrand());
+
+        if (equipment.getModel() != null)
+            equipmentEdit.setModel(equipment.getModel());
+
+        if (equipment.getSerial() != null)
+            equipmentEdit.setSerial(equipment.getSerial());
+
+        if (equipment.getCostValue() != null)
+            equipmentEdit.setCostValue(equipment.getCostValue());
+
+        if (equipment.getDefectForRepair() != null)
+            equipmentEdit.setDefectForRepair(equipment.getDefectForRepair());
+
+        equipmentDao.save(equipmentEdit);
     }
 
 }

@@ -31,4 +31,9 @@ public class EquipmentController {
     public List<Equipment> findAll(){
         return equipmentService.findAll();
     }
+
+    @RequestMapping(value = "update-equipment", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+    public void update(@RequestBody EquipmentDto equipmentDto){
+        equipmentService.update(equipmentDto.toBuildUpdate(equipmentDto));
+    }
 }

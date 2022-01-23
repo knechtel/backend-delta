@@ -29,8 +29,6 @@ public class EquipmentService {
     }
 
     public void update(Equipment equipment) {
-        System.out.println("updateSerivce");
-        System.out.println(equipment.getId());
         if(equipment.getId()==null){ return;}
         Equipment equipmentEdit = equipmentDao.findById(equipment.getId()).orElse(null);
         if (equipment.getBrand() != null)

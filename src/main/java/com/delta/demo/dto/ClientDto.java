@@ -13,14 +13,17 @@ public class ClientDto {
     private String email;
     private String cpf;
 
-    public Client toBuild(ClientDto clientDto){
+    public Client toBuild(ClientDto clientDto) {
         Client entity = new Client();
-        if(id!=null){
+        if (id != null) {
             entity.setId(id);
         }
-        entity.setName(name);
-        entity.setEmail(email);
-        entity.setCpf(cpf);
+        if (name != null)
+            entity.setName(name);
+        if (email != null)
+            entity.setEmail(email);
+        if (cpf != null)
+            entity.setCpf(cpf);
 
         return entity;
     }

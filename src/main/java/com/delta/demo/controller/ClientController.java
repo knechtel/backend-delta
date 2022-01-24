@@ -23,8 +23,17 @@ public class ClientController {
     public Client create(@RequestBody ClientDto clientDto){
         return clientService.create(clientDto.toBuild(clientDto));
     }
+    @PostMapping(value = "client-update", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public void update(@RequestBody ClientDto clientDto){
+         clientService.update(clientDto.toBuild(clientDto));
+    }
     @RequestMapping(value = "client-findAll", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
     public List<Client> findAll(){
         return clientService.FindAll();
+    }
+
+    @PostMapping(value = "client-delete", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public void delete(@RequestBody ClientDto clientDto){
+        clientService.delete(clientDto.toBuild(clientDto));
     }
 }

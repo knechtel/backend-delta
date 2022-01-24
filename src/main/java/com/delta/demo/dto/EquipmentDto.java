@@ -70,6 +70,8 @@ public class EquipmentDto {
 
     public Equipment toBuild(EquipmentDto equipmentDto) {
         Equipment entity = new Equipment();
+        if(equipmentDto.getId()!=null)
+            entity.setId(equipmentDto.getId());
         entity.setBrand(brand);
         entity.setModel(model);
         entity.setSerial(serial);

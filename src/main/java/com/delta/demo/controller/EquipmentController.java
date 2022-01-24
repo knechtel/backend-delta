@@ -1,6 +1,7 @@
 package com.delta.demo.controller;
 
 import com.delta.demo.domain.Equipment;
+import com.delta.demo.dto.ClientDto;
 import com.delta.demo.dto.EquipmentDto;
 import com.delta.demo.service.ClientService;
 import com.delta.demo.service.EquipmentService;
@@ -35,5 +36,9 @@ public class EquipmentController {
     @RequestMapping(value = "update-equipment", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
     public void update(@RequestBody EquipmentDto equipmentDto){
         equipmentService.update(equipmentDto.toBuildUpdate(equipmentDto));
+    }
+    @PostMapping(value = "delete-equipment", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public void delete(@RequestBody EquipmentDto equipmentDto){
+        equipmentService.delete(equipmentDto.toBuild(equipmentDto));
     }
 }

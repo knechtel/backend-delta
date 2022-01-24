@@ -49,4 +49,7 @@ public class EquipmentService {
         equipmentDao.save(equipmentEdit);
     }
 
+    public void delete(Equipment equipment) {
+        equipmentDao.delete(equipment);
+    }
 }

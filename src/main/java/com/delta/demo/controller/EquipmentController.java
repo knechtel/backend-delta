@@ -34,8 +34,6 @@ public class EquipmentController {
 
     @RequestMapping(value = "update-equipment", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
     public void update(@RequestBody EquipmentDto equipmentDto){
-        System.out.println("update");
-        System.out.println("update "+equipmentDto.getBrand());
         equipmentService.update(equipmentDto.toBuildUpdate(equipmentDto));
     }
 }

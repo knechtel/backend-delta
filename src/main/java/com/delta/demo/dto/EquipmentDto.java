@@ -82,7 +82,6 @@ public class EquipmentDto {
     public Equipment toBuildUpdate(EquipmentDto equipmentDto) {
         Equipment entity = new Equipment();
         entity.setId(id);
-        System.out.println(id);
         if (brand != null) {
             entity.setBrand(brand);
         }

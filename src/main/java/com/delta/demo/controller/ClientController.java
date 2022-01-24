@@ -36,4 +36,8 @@ public class ClientController {
     public void delete(@RequestBody ClientDto clientDto){
         clientService.delete(clientDto.toBuild(clientDto));
     }
+    @PostMapping(value = "client-findById", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Client findById(@RequestBody ClientDto clientDto){
+        return clientService.findById(clientDto.getId());
+    }
 }

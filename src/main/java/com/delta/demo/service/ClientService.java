@@ -47,4 +47,8 @@ public class ClientService {
     public void delete(Client client) {
         clientDao.delete(client);
     }
+
+    public Client findById(Client client){
+        return clientDao.findById(client.getId()).orElse(null);
+    }
 }

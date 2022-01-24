@@ -20,7 +20,7 @@ public class ClientService {
     }
 
     public List<Client> FindAll() {
-        return (List<Client>) clientDao.findAllDesc();
+        return (List<Client>) clientDao.findAll();
     }
 
     public Client findById(Integer id) {
@@ -50,5 +50,10 @@ public class ClientService {
 
     public Client findById(Client client){
         return clientDao.findById(client.getId()).orElse(null);
+    }
+
+    public Client findAllEquipment(Client client){
+        Client c =  clientDao.findClientAnnAllEquipment(client.getId());
+        return c;
     }
 }

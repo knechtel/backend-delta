@@ -13,7 +13,7 @@ public class Client implements Serializable {
     private String name;
     private String email;
     private String cpf;
-    @OneToMany
+    @OneToMany(mappedBy = "client",fetch = FetchType.LAZY)
     private List<Equipment> listEquipment;
 
     public Integer getId() {
@@ -46,5 +46,13 @@ public class Client implements Serializable {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public List<Equipment> getListEquipment() {
+        return listEquipment;
+    }
+
+    public void setListEquipment(List<Equipment> listEquipment) {
+        this.listEquipment = listEquipment;
     }
 }

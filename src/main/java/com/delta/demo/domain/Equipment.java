@@ -1,5 +1,7 @@
 package com.delta.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -14,7 +16,8 @@ public class Equipment implements Serializable {
     private String serial;
     private Double costValue;
     private String defectForRepair;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     private Client client;
 
     public Integer getId() {

@@ -40,4 +40,8 @@ public class ClientController {
     public Client findById(@RequestBody ClientDto clientDto){
         return clientService.findById(clientDto.getId());
     }
+    @PostMapping(value = "client-findByAllEquipment", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Client findByAllEquipment(@RequestBody ClientDto clientDto){
+        return clientService.findAllEquipment(clientDto.toBuild(clientDto));
+    }
 }

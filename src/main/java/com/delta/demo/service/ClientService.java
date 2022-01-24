@@ -20,7 +20,7 @@ public class ClientService {
     }
 
     public List<Client> FindAll() {
-        return (List<Client>) clientDao.findAll();
+        return (List<Client>) clientDao.findAllDesc();
     }
 
     public Client findById(Integer id) {

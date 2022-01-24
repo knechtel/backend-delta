@@ -32,7 +32,7 @@ public class EquipmentService {
         if(equipment.getId()==null){ return;}
         Equipment equipmentEdit = equipmentDao.findById(equipment.getId()).orElse(null);
         if (equipment.getBrand() != null)
-            equipmentEdit.setBrand(equipmentEdit.getBrand());
+            equipmentEdit.setBrand(equipment.getBrand());
 
         if (equipment.getModel() != null)
             equipmentEdit.setModel(equipment.getModel());

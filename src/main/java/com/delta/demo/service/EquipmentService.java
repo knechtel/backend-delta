@@ -50,8 +50,12 @@ public class EquipmentService {
 
         if (equipment.isAutorizado() != null)
             equipmentEdit.setAutorizado(equipment.isAutorizado());
+        else
+            equipmentEdit.setAutorizado(false);
         if (equipment.isPronto() != null)
             equipmentEdit.setPronto(equipment.isPronto());
+        else
+            equipmentEdit.setPronto(false);
         equipmentDao.save(equipmentEdit);
     }
 

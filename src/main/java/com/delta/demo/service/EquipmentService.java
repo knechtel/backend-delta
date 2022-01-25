@@ -29,7 +29,9 @@ public class EquipmentService {
     }
 
     public void update(Equipment equipment) {
-        if(equipment.getId()==null){ return;}
+        if (equipment.getId() == null) {
+            return;
+        }
         Equipment equipmentEdit = equipmentDao.findById(equipment.getId()).orElse(null);
         if (equipment.getBrand() != null)
             equipmentEdit.setBrand(equipment.getBrand());
@@ -46,6 +48,10 @@ public class EquipmentService {
         if (equipment.getDefectForRepair() != null)
             equipmentEdit.setDefectForRepair(equipment.getDefectForRepair());
 
+        if (equipment.isAutorizado() != null)
+            equipmentEdit.setAutorizado(equipment.isAutorizado());
+        if (equipment.isPronto() != null)
+            equipmentEdit.setPronto(equipment.isPronto());
         equipmentDao.save(equipmentEdit);
     }
 

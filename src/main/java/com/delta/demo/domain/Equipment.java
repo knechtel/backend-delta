@@ -19,6 +19,9 @@ public class Equipment implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private Client client;
+    private Boolean pronto;
+    private Boolean autorizado;
+
 
     public Integer getId() {
         return id;
@@ -75,4 +78,22 @@ public class Equipment implements Serializable {
     public void setClient(Client client) {
         this.client = client;
     }
+
+    public Boolean isPronto() {
+        return pronto;
+    }
+
+    public void setPronto(Boolean pronto) {
+        this.pronto = pronto;
+    }
+
+    public Boolean isAutorizado() {
+        return autorizado;
+    }
+
+    public void setAutorizado(boolean autorizado) {
+        this.autorizado = autorizado;
+    }
+
+
 }

@@ -18,8 +18,8 @@ public class EquipmentDto {
     private Double costValue;
     private String defectForRepair;
     private Integer idClient;
-
-
+    private Boolean pronto;
+    private Boolean autorizado;
     public Integer getId() {
         return id;
     }
@@ -77,7 +77,8 @@ public class EquipmentDto {
         entity.setSerial(serial);
         entity.setCostValue(costValue);
         entity.setDefectForRepair(defectForRepair);
-
+        entity.setAutorizado(autorizado);
+        entity.setPronto(pronto);
         return entity;
     }
 
@@ -99,7 +100,14 @@ public class EquipmentDto {
         if (defectForRepair != null) {
             entity.setDefectForRepair(defectForRepair);
         }
-
+        if(pronto!=null){
+            System.out.println("toBuild");
+            System.out.println(pronto);
+            entity.setPronto(pronto);
+        }
+        if(autorizado!=null){
+            entity.setAutorizado(autorizado);
+        }
         return entity;
     }
 
@@ -109,5 +117,21 @@ public class EquipmentDto {
 
     public void setIdClient(Integer idClient) {
         this.idClient = idClient;
+    }
+
+    public boolean isPronto() {
+        return pronto;
+    }
+
+    public void setPronto(boolean pronto) {
+        this.pronto = pronto;
+    }
+
+    public boolean isAutorizado() {
+        return autorizado;
+    }
+
+    public void setAutorizado(boolean autorizado) {
+        this.autorizado = autorizado;
     }
 }

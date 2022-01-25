@@ -20,7 +20,7 @@ public class EquipmentController {
     private EquipmentService equipmentService;
     @Autowired
     private ClientService clientService;
-    @PostMapping(value = "create-equipment", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "equipment-create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Equipment create(@RequestBody EquipmentDto equipmentDto){
         Equipment equipment = equipmentDto.toBuild(equipmentDto);
         if(equipmentDto.getIdClient()!=null)
@@ -28,16 +28,16 @@ public class EquipmentController {
         return equipmentService.create(equipment);
     }
 
-    @RequestMapping(value = "findAll-equipment", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
+    @RequestMapping(value = "equipment-findAll", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
     public List<Equipment> findAll(){
         return equipmentService.findAll();
     }
 
-    @RequestMapping(value = "update-equipment", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+    @RequestMapping(value = "equipment-update", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
     public void update(@RequestBody EquipmentDto equipmentDto){
         equipmentService.update(equipmentDto.toBuildUpdate(equipmentDto));
     }
-    @PostMapping(value = "delete-equipment", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "equipment-delete", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void delete(@RequestBody EquipmentDto equipmentDto){
         equipmentService.delete(equipmentDto.toBuild(equipmentDto));
     }

@@ -19,12 +19,12 @@ import java.util.List;
 public class OsController {
     @Autowired
     private OsService osService;
-    @PostMapping(value = "create-os", consumes = MediaType.APPLICATION_JSON_VALUE,
+    @PostMapping(value = "os-create", consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public Os create(@RequestBody OsDto osDto){
         return osService.create(osDto.toBuild(osDto));
     }
-    @PostMapping(value = "findAll-os", consumes = MediaType.APPLICATION_JSON_VALUE,
+    @PostMapping(value = "os-findAll", consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Os> findAll(){
         return osService.findAll();

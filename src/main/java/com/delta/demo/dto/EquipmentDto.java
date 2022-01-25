@@ -20,6 +20,7 @@ public class EquipmentDto {
     private Integer idClient;
     private Boolean pronto;
     private Boolean autorizado;
+
     public Integer getId() {
         return id;
     }
@@ -70,15 +71,23 @@ public class EquipmentDto {
 
     public Equipment toBuild(EquipmentDto equipmentDto) {
         Equipment entity = new Equipment();
-        if(equipmentDto.getId()!=null)
+        if (equipmentDto.getId() != null)
             entity.setId(equipmentDto.getId());
         entity.setBrand(brand);
         entity.setModel(model);
         entity.setSerial(serial);
         entity.setCostValue(costValue);
         entity.setDefectForRepair(defectForRepair);
-        entity.setAutorizado(autorizado);
-        entity.setPronto(pronto);
+
+        if (entity.isAutorizado() != null)
+            entity.setAutorizado(autorizado);
+        else
+            entity.setAutorizado(false);
+        if (entity.isPronto() != null)
+            entity.setPronto(pronto);
+        else
+            entity.setPronto(false);
+
         return entity;
     }
 
@@ -94,18 +103,18 @@ public class EquipmentDto {
         if (serial != null) {
             entity.setSerial(serial);
         }
-        if (costValue != null){
+        if (costValue != null) {
             entity.setCostValue(costValue);
         }
         if (defectForRepair != null) {
             entity.setDefectForRepair(defectForRepair);
         }
-        if(pronto!=null){
+        if (pronto != null) {
             System.out.println("toBuild");
             System.out.println(pronto);
             entity.setPronto(pronto);
         }
-        if(autorizado!=null){
+        if (autorizado != null) {
             entity.setAutorizado(autorizado);
         }
         return entity;

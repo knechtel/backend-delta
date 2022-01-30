@@ -1,5 +1,7 @@
 package com.delta.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -14,6 +16,7 @@ public class Client implements Serializable {
     private String email;
     private String cpf;
     @OneToMany(mappedBy = "client",fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Equipment> listEquipment;
 
     public Integer getId() {

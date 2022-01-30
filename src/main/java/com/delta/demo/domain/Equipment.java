@@ -17,6 +17,7 @@ public class Equipment implements Serializable {
     private Double costValue;
     private String defectForRepair;
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id",nullable = false)
     @JsonIgnore
     private Client client;
     private Boolean pronto;

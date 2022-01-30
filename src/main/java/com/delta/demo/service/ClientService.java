@@ -1,10 +1,12 @@
 package com.delta.demo.service;
 
 import com.delta.demo.domain.Client;
+import com.delta.demo.dto.ClientDto;
 import com.delta.demo.repository.ClientDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,7 +22,7 @@ public class ClientService {
     }
 
     public List<Client> FindAll() {
-        return (List<Client>) clientDao.findAllDesc();
+        return clientDao.findAllLessEquipment();
     }
 
     public Client findById(Integer id) {
@@ -48,12 +50,12 @@ public class ClientService {
         clientDao.delete(client);
     }
 
-    public Client findById(Client client){
+    public Client findById(Client client) {
         return clientDao.findById(client.getId()).orElse(null);
     }
 
-    public Client findAllEquipment(Client client){
-        Client c =  clientDao.findClientAnnAllEquipment(client.getId());
+    public Client findAllEquipment(Client client) {
+        Client c = clientDao.findClientAnnAllEquipment(client.getId());
         return c;
     }
 }

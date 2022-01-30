@@ -16,7 +16,7 @@ public interface ClientDao extends CrudRepository<Client, Integer> {
     List<Client> findAllDesc();
 
     @Query("select c from Client c join fetch c.listEquipment eq where c.id =:idValue ")
-    Client findClientAnnAllEquipment(@Param("idValue")Integer idValue);
+    Client findClientAndAllEquipment(@Param("idValue")Integer idValue);
 
     @Query("select new Client (c.id, c.name, c.cpf, c.email) from Client as c")
     List<Client> findAllLessEquipment();

@@ -1,12 +1,10 @@
 package com.delta.demo.service;
 
 import com.delta.demo.domain.Client;
-import com.delta.demo.dto.ClientDto;
 import com.delta.demo.repository.ClientDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -55,7 +53,7 @@ public class ClientService {
     }
 
     public Client findAllEquipment(Client client) {
-        Client c = clientDao.findClientAnnAllEquipment(client.getId());
+        Client c = clientDao.findClientAndAllEquipment(client.getId());
         return c;
     }
 }

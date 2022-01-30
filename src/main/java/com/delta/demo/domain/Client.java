@@ -15,9 +15,19 @@ public class Client implements Serializable {
     private String name;
     private String email;
     private String cpf;
-    @OneToMany(mappedBy = "client",fetch = FetchType.LAZY)
     @JsonIgnore
+    @OneToMany(mappedBy = "client",fetch = FetchType.LAZY)
     private List<Equipment> listEquipment;
+
+    public Client(Integer id,String name,String cpf,String email) {
+        this.id=id;
+        this.name=name;
+        this.cpf=cpf;
+        this.email=email;
+    }
+
+    public Client(){}
+
 
     public Integer getId() {
         return id;

@@ -4,7 +4,12 @@ import com.delta.demo.domain.Client;
 import com.delta.demo.domain.Equipment;
 import com.delta.demo.service.ClientService;
 import com.delta.demo.service.EquipmentService;
+import com.delta.demo.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by maiquelknechtel on 1/6/22.
@@ -20,6 +25,7 @@ public class EquipmentDto {
     private Integer idClient;
     private Boolean pronto;
     private Boolean autorizado;
+    private String entregue;
 
     public Integer getId() {
         return id;
@@ -88,6 +94,10 @@ public class EquipmentDto {
         else
             entity.setPronto(false);
 
+        if(equipmentDto.getEntregue()!=null){
+           entity.setDataEntrega(Util.convertStringToDate(equipmentDto.getEntregue()));
+        }
+
         return entity;
     }
 
@@ -142,5 +152,13 @@ public class EquipmentDto {
 
     public void setAutorizado(boolean autorizado) {
         this.autorizado = autorizado;
+    }
+
+    public String getEntregue() {
+        return entregue;
+    }
+
+    public void setEntregue(String entregue) {
+        this.entregue = entregue;
     }
 }

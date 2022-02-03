@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 public class Equipment implements Serializable {
@@ -22,6 +23,7 @@ public class Equipment implements Serializable {
     private Client client;
     private Boolean pronto;
     private Boolean autorizado;
+    private Date dataEntrega;
 
 
     public Integer getId() {
@@ -96,5 +98,11 @@ public class Equipment implements Serializable {
         this.autorizado = autorizado;
     }
 
+    public Date getDataEntrega() {
+        return dataEntrega;
+    }
 
+    public void setDataEntrega(Date dataEntrega) {
+        this.dataEntrega = dataEntrega;
+    }
 }

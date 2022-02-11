@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,6 +26,7 @@ public class EquipmentController {
         Equipment equipment = equipmentDto.toBuild(equipmentDto);
         if(equipmentDto.getIdClient()!=null)
             equipment.setClient(clientService.findById(equipmentDto.getIdClient()));
+        equipment.setDataEntrada(new Date());
         return equipmentService.create(equipment);
     }
 

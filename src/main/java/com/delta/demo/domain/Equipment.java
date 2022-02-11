@@ -24,6 +24,7 @@ public class Equipment implements Serializable {
     private Boolean pronto;
     private Boolean autorizado;
     private Date dataEntrega;
+    private Date dataEntrada;
 
 
     public Integer getId() {
@@ -104,5 +105,13 @@ public class Equipment implements Serializable {
 
     public void setDataEntrega(Date dataEntrega) {
         this.dataEntrega = dataEntrega;
+    }
+
+    public Date getDataEntrada() {
+        return dataEntrada;
+    }
+
+    public void setDataEntrada(Date dataEntrada) {
+        this.dataEntrada = dataEntrada;
     }
 }

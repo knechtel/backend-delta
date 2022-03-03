@@ -62,4 +62,6 @@ public class EquipmentService {
     public void delete(Equipment equipment) {
         equipmentDao.delete(equipment);
     }
+
+
 }

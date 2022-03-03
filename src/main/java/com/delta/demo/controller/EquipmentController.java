@@ -43,4 +43,9 @@ public class EquipmentController {
     public void delete(@RequestBody EquipmentDto equipmentDto){
         equipmentService.delete(equipmentDto.toBuild(equipmentDto));
     }
+
+    @PostMapping(value = "equipment-findById", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Equipment findById(@RequestBody EquipmentDto equipmentDto){
+        return equipmentService.findById(equipmentDto.getId());
+    }
 }
